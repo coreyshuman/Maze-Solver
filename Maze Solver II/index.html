@@ -1,0 +1,66 @@
+<html>
+<head>
+	<style type="text/css">
+		.maze {
+			background-color: gray;
+		}
+		
+		.maze td {
+			width: 15px;
+			height: 15px;
+			border-spacing: 0px;
+		}
+		
+		.mazeClear {
+			background-color: white;
+		}
+
+		.mazeSolid {
+			background-color: black;
+		} 
+		
+		.mazePath {
+			background-color: lightblue;
+		} 
+		
+		.mazePlayer {
+			background-color: blue;
+		} 
+		
+		.mazeStart {
+			background-color: green;
+		} 
+		
+		.mazeEnd {
+			background-color: red;
+		} 
+	</style>
+</head>
+<body>
+	<label>Draw Table:</label>
+	<br />
+	<button id="btnAddCol">Add Column</button>
+	<button id="btnAddRow">Add Row</button>
+	<button id="btnUseMaze">Use Maze</button>
+	<br />
+	<br />
+	<table id="mazeDrawTable" border="0" class="maze"></table>
+	<br />
+	<table id="mazeTable" border="0" cellspacing="0" cellpadding="0" class="maze"></table>
+	<br />
+	<span id="statusText">Stopped.</span>
+	<br />
+	<button id="btnRun">Run</button>
+	<button id="btnStep">Step</button>
+	<button id="btnReset">Reset</button>
+	<button id="btnClearLog">Clear Log</button>
+	<br />
+	<textarea id="log" style="width:300px; height:200px;"></textarea>
+	<br />
+	Raw Output:
+	<br />
+	<pre id="mazeOut"></pre>
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

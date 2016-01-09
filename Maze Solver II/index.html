@@ -37,6 +37,18 @@
 	</style>
 </head>
 <body>
+	<h2>Maze Solver</h2>
+	<p>This algorithm will solve any maze you can come up with!</p>
+	<br>
+	<h3>Usage</h3>
+	<p style='width: 600px'>
+	Start by drawing a maze. Click on a cell to toggle between 'black' which represents a solid wall and 'white' which represents an open path.
+	Edge cells will also toggle between 'green' and 'red' which represent a start and end location for the maze.
+	Use the 'Add Column' and 'Add Row' buttons to increase the size of the maze.
+	Once you are happy with the maze, click 'Use Maze' to initialize the algorithm to solve your maze.
+	Finally, click 'Run' and watch the algorithm solve the maze all by itself!
+	</p>
+	<hr>
 	<label>Draw Table:</label>
 	<br />
 	<button id="btnAddCol">Add Column</button>
@@ -46,9 +58,10 @@
 	<br />
 	<table id="mazeDrawTable" border="0" class="maze"></table>
 	<br />
+	<hr>
 	<table id="mazeTable" border="0" cellspacing="0" cellpadding="0" class="maze"></table>
 	<br />
-	<span id="statusText">Stopped.</span>
+	Status: <span id="statusText">Stopped.</span>
 	<br />
 	<button id="btnRun">Run</button>
 	<button id="btnStep">Step</button>

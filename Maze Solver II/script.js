@@ -271,7 +271,8 @@ var MazeSolver = function(onCompleteHandler) {
 		CLEAR: ' ',
 		START: 'S',
 		END: 'E',
-		MARK: '.'
+		MARK: '.',
+		TRAIL: '-'
 	};
 
 	var Action = function(d) {
@@ -328,7 +329,7 @@ var MazeSolver = function(onCompleteHandler) {
 				var cell = row.insertCell(-1);
 				if(j === p.x && k === p.y) {
 					cell.setAttribute("class", "mazePlayer");
-				} else if(maze[j][k] === ' ') {
+				} else if(maze[j][k].toUpperCase() === cellState.CLEAR) {
 					cell.setAttribute("class", "mazeClear");
 				} else if(maze[j][k].toUpperCase() === cellState.START) {
 					cell.setAttribute("class", "mazeStart");
@@ -336,6 +337,8 @@ var MazeSolver = function(onCompleteHandler) {
 					cell.setAttribute("class", "mazeEnd");
 				} else if(maze[j][k].toUpperCase() === cellState.MARK) {
 					cell.setAttribute("class", "mazePath");
+				} else if(maze[j][k].toUpperCase() === cellState.TRAIL) {
+					cell.setAttribute("class", "mazeClear");
 				} else {
 					cell.setAttribute("class", "mazeSolid");
 				}
@@ -444,7 +447,7 @@ var MazeSolver = function(onCompleteHandler) {
 		var p = self.getMazeIndex(m,loc);
 		var val = m[p.x][p.y].toUpperCase();
 		if(val !== cellState.START && val !== cellState.END)
-			m[p.x][p.y] = clear ? cellState.CLEAR : cellState.MARK;
+			m[p.x][p.y] = clear ? cellState.TRAIL : cellState.MARK;
 	}
 	
 	this.clearAllMazeMarks = function(maze) {
@@ -453,7 +456,7 @@ var MazeSolver = function(onCompleteHandler) {
 		
 		for(var j = 0; j<mHeight; j++) {
 			for(var k = 0; k < mWidth; k++) {
-				if(maze[j][k].toUpperCase() === cellState.MARK) {
+				if(maze[j][k].toUpperCase() === cellState.MARK || maze[j][k].toUpperCase() === cellState.TRAIL) {
 					maze[j][k] = cellState.CLEAR;
 				}
 			}
